@@ -33,8 +33,6 @@ jobs:
           tox -e docker -- --tag=ckevi/awx-ee:latest
 
       - name: Push images
-        env:
-          DOCKER_HOST: /var/run/docker/containerd/containerd.sock
         run: |
          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
          docker push ckevi/awx-ee:latest
