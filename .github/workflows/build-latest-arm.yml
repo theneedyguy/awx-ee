@@ -33,5 +33,5 @@ jobs:
 
       - name: Push images
         run: |
-         echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -H 127.0.0.1:2376 -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-         docker push -H 127.0.0.1:2376 ckevi/awx-ee:latest
+         echo "${{ secrets.DOCKER_PASSWORD }}" | docker -H 127.0.0.1:2376 login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+         docker -H 127.0.0.1:2376 push ckevi/awx-ee:latest
